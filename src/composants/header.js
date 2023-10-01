@@ -1,19 +1,20 @@
-import React ,{ useEffect } from "react";
+import React from "react";
 import argentBankLogo from '../pages/img/argentBankLogo.png'
 import { useDispatch,  useSelector } from "react-redux";
-import { disconnecting } from '../state/store';
-import { useNavigate } from "react-router-dom";
-
+import { disconnecting, store } from '../state/store';
 
 function Header(){
     const status = useSelector((state) => state.status);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleDisco = () => {
+        console.log("Disco")
         // Appelez votre action disconnecting
         dispatch(disconnecting());
-      };
+    };
+
+    const state = store.getState();
+    console.log(state);
 
     return(
         <nav className="main-nav">
@@ -34,14 +35,14 @@ function Header(){
                     </a>
                     <a className="main-nav-item" href="" onClick={handleDisco} >
                     <i className="fa fa-sign-out"></i>
-                    Sign Out
+                    Se déconnecter
                     </a>
                 </div>
                 :
                 <div>
                     <a className="main-nav-item" href="/se-connecter">
                     <i className="fa fa-user-circle"></i>
-                    Sign In
+                    Se connecter
                     </a>
                 </div> 
             }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../state/store";
-import { useHistory, useNavigate } from "react-router-dom"; // Pour la redirection
+import { useNavigate } from "react-router-dom"; // Pour la redirection
 
 function Connexion(){
     const dispatch = useDispatch();
@@ -12,26 +12,21 @@ function Connexion(){
 
   const handleSignIn = () => {
     // Validez les données du formulaire localement ici avant d'appeler signIn
-
-    console.log(username);
-    console.log(password);
-
     if (!username || !password) {
-      alert("Please enter both username and password");
+      alert("Veuillez entrer un email et mot de passe");
       return;
     }
 
     // Appelez votre action signIn avec les valeurs de username et password
     dispatch(signIn(username, password));
    
-    // Après avoir dispatché l'action, obtenez l'état actuel de l'application
     if(status==="online"){
       // Redirigez vers la page Profil
        navigate("/profil");
     }
   };
+  
     useEffect(() => {
-        // Met à jour le titre du document via l’API du navigateur
         if(status==="online"){
             // Redirigez vers la page Profil
             navigate("/profil");

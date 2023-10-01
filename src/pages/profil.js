@@ -1,6 +1,6 @@
 import React ,{ useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useHistory, useNavigate } from "react-router-dom"; // Pour la redirection
+import { useNavigate } from "react-router-dom"; // Pour la redirection
 
 function Profil(){
     const status = useSelector((state) => state.status);
