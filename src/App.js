@@ -10,15 +10,15 @@ import Footer from './composants/footer';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
-            <Routes>
-                <Route path="/" element={<Accueil />} />
-                <Route path="/se-connecter" element={<Connexion />} />
-                <Route path="/profil" element={<Profil />} />
-            </Routes>
-        </Router>
-        <Footer />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/se-connecter" element={<Connexion />} />
+          <Route path="/profil" element={<Profil />} />
+        </Routes>
+      </Router>
+      <Footer />
     </div>
   );
 }

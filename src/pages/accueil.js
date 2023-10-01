@@ -3,6 +3,7 @@ import iconMoney from '../pages/img/icon-money.png'
 import iconSecurity from '../pages/img/icon-security.png'
 
 function Accueil(){
+    
     return(
         <main>
             <div className="hero">

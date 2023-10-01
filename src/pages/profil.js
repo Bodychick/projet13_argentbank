@@ -1,6 +1,19 @@
-
+import React ,{ useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useHistory, useNavigate } from "react-router-dom"; // Pour la redirection
 
 function Profil(){
+    const status = useSelector((state) => state.status);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Met à jour le titre du document via l’API du navigateur
+        if(status==="offline"){
+            // Redirigez vers la page Profil
+            navigate("/se-connecter");
+        }
+    },[status]);
+
     return(
         <main className="main bg-dark">
             <div className="header">
