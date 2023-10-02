@@ -6,6 +6,7 @@ import { disconnecting, store } from '../state/store';
 function Header(){
     const status = useSelector((state) => state.status);
     const dispatch = useDispatch();
+    const firstName = useSelector((state) => state.firstName);
 
     const handleDisco = () => {
         console.log("Disco")
@@ -31,7 +32,7 @@ function Header(){
                 <div>
                     <a className="main-nav-item" href="/profil">
                     <i className="fa fa-user-circle"></i>
-                    Tony
+                    {firstName}
                     </a>
                     <a className="main-nav-item" href="" onClick={handleDisco} >
                     <i className="fa fa-sign-out"></i>

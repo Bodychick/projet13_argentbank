@@ -4,7 +4,7 @@ import { signIn } from "../state/store";
 import { useNavigate } from "react-router-dom"; // Pour la redirection
 
 function Connexion(){
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const status = useSelector((state) => state.status);
@@ -19,13 +19,12 @@ function Connexion(){
 
     // Appelez votre action signIn avec les valeurs de username et password
     dispatch(signIn(username, password));
-   
     if(status==="online"){
-      // Redirigez vers la page Profil
-       navigate("/profil");
-    }
+        // Redirigez vers la page Profil
+         navigate("/profil");
+      }
   };
-  
+
     useEffect(() => {
         if(status==="online"){
             // Redirigez vers la page Profil

@@ -1,9 +1,15 @@
 import React ,{ useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"; // Pour la redirection
+import { useDispatch, useSelector } from "react-redux";
+import { getProfil } from "../state/store"
+
 
 function Profil(){
+    const dispatch = useDispatch();
     const status = useSelector((state) => state.status);
+    const token = useSelector((state) => state.token);
+    const firstName = useSelector((state) => state.firstName);
+    const lastName = useSelector((state) => state.lastName);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -12,12 +18,17 @@ function Profil(){
             // Redirigez vers la page Profil
             navigate("/se-connecter");
         }
-    },[status]);
+    },[navigate, status]);
+
+    useEffect(() => {
+       dispatch(getProfil(token));
+
+      }, [dispatch, token]);
 
     return(
         <main className="main bg-dark">
             <div className="header">
-                <h1>Welcome back<br />Tony Jarvis!</h1>
+                <h1>Welcome back<br />{firstName} {lastName}!</h1>
                 <button className="edit-button">Edit Name</button>
             </div>
             <h2 className="sr-only">Accounts</h2>
