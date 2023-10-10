@@ -30,7 +30,7 @@ function Connexion(){
             // Redirigez vers la page Profil
             navigate("/profil");
         }
-    },[status]);
+    },[navigate, status]);
 
 
     return(

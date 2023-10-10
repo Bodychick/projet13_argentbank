@@ -14,8 +14,9 @@ function Profil(){
 
     useEffect(() => {
         // Met à jour le titre du document via l’API du navigateur
-        if(status==="offline"){
-            // Redirigez vers la page Profil
+        if(status==="offline" && token!=="none"){
+            // Redirigez vers la page se-connecter
+            console.log(status);
             navigate("/se-connecter");
         }
     },[navigate, status]);

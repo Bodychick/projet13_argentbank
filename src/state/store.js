@@ -87,12 +87,11 @@ export const getProfil = (token) => {
         console.log(data);
         const { email, id, firstName, lastName } = data.body;
         console.log(firstName)
-        // Si l'appel API réussit, dispatchez l'action signInSuccess avec le token
+        // Si l'appel API réussit, dispatchez l'action getProfilInfo
         dispatch(profil(email, id, firstName, lastName ));
-        // Après avoir dispatché l'action, obtenez l'état actuel de l'application
+        // affichage du state
         const currentState = store.getState();
         
-        // Affichez l'état dans la console
         console.log("État actuel de l'application :", currentState);
        
       } else {

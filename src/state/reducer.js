@@ -29,7 +29,8 @@ export const initialState = {
       case DISCONNECT:
         return {
             ...state,
-            status:'offline'
+            status:'offline',
+            token:'none',
         }
       case PROFIL:
         return {
