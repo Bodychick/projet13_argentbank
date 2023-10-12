@@ -31,6 +31,10 @@ export const initialState = {
             ...state,
             status:'offline',
             token:'none',
+            firstName: 'none',
+            lastName:'none',
+            id:"",
+            email: 'none',
         }
       case PROFIL:
         return {

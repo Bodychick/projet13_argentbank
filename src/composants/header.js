@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import argentBankLogo from '../pages/img/argentBankLogo.png'
 import { useDispatch,  useSelector } from "react-redux";
 import { disconnecting, store } from '../state/store';

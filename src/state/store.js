@@ -105,6 +105,41 @@ export const getProfil = (token) => {
   };
 };
 
+export const changeName = (firstName, lastName, token) => {
+  console.log(firstName + " " + lastName);
+  return async (dispatch) => {
+    try {
+      // Effectuez votre appel API ici 
+      const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ firstName, lastName }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        const { email, id, firstName, lastName } = data.body;
+        // Si l'appel API réussit, dispatchez l'action getProfilInfo
+        dispatch(profil(email, id, firstName, lastName ));
+        // affichage du state
+        const currentState = store.getState();
+        console.log("État actuel de l'application :", currentState);
+       
+      } else {
+        // Si l'appel API échoue
+        dispatch(profilError("Problème avec le token"));
+      }
+    } catch (error) {
+      // En cas d'erreur
+      dispatch(profilError("An error occurred"));
+    }
+  };
+};
+
 export const store = createStore(
   persistedReducer, // Utilisez le reducer persisté
   applyMiddleware(thunk)
