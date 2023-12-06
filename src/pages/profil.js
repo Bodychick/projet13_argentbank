@@ -20,8 +20,6 @@ function Profil(){
     const [lastNameEdit, editLastName] = useState();
 
 
-   
-
     useEffect(() => {
         // Met à jour le titre du document via l’API du navigateur
         if(status==="offline" && token=="none"){
@@ -50,7 +48,7 @@ function Profil(){
             {
                 nameEdit === false ?
                 <div className="header">
-                    <h1>Welcome back<br />{firstName} {lastName}!</h1>
+                    <h1>Welcome back<br />{firstName}  {lastName}!</h1>
                     <button className="edit-button" onClick={() => editName(true)}>Edit Name</button>  
                  </div>
                  :
@@ -63,11 +61,7 @@ function Profil(){
                     </form>
                 </div>
 
-            }
-            
-
-            
-            
+            }          
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
                 <div className="account-content-wrapper">

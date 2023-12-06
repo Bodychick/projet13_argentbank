@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import argentBankLogo from '../pages/img/argentBankLogo.png'
 import { useDispatch,  useSelector } from "react-redux";
 import { disconnecting, store } from '../state/store';
@@ -36,14 +36,14 @@ function Header(){
                     </a>
                     <a className="main-nav-item" href="" onClick={handleDisco} >
                     <i className="fa fa-sign-out"></i>
-                    Se déconnecter
+                    Sign out
                     </a>
                 </div>
                 :
                 <div>
                     <a className="main-nav-item" href="/se-connecter">
                     <i className="fa fa-user-circle"></i>
-                    Se connecter
+                    Sign in
                     </a>
                 </div> 
             }
