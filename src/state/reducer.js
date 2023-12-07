@@ -5,6 +5,7 @@ export const initialState = {
     status: 'offline',
     token: 'none',
     email: 'none',
+    signinTry:""
   };
 
   export const SIGN_IN_SUCCESS="SIGN_IN_SUCCESS";
@@ -20,11 +21,13 @@ export const initialState = {
           ...state,
           token: action.payload.token,
           status: 'online',
+          signinTry:""
         };
       case SIGN_IN_FAILURE:
         return {
           ...state,
           status: 'offline',
+          signinTry:"failure"
         };
       case DISCONNECT:
         return {

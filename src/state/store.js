@@ -33,10 +33,10 @@ export const profilError = (error) => ({
 });
 
 export const signIn = (email, password) => {
-  console.log(email,password);
+  console.log(email, password);
   return async (dispatch) => {
     try {
-      // Effectuez votre appel API ici 
+      // Effectuez votre appel API ici
       const response = await fetch("http://localhost:3001/api/v1/user/login/", {
         method: "POST",
         headers: {
@@ -50,20 +50,22 @@ export const signIn = (email, password) => {
         console.log(data);
         const { token } = data.body;
         // Si l'appel API réussit, dispatchez l'action signInSuccess avec le token
-        dispatch(signInSuccess(token,email));
+        dispatch(signInSuccess(token, email));
         // Après avoir dispatché l'action, obtenez l'état actuel de l'application
         const currentState = store.getState();
-        
+
         // Affichez l'état dans la console
         console.log("État actuel de l'application :", currentState);
-       
       } else {
-        // Si l'appel API échoue, dispatchez l'action signInFailure avec une erreur appropriée
-        dispatch(signInFailure("Invalid username or password"));
+        const errorData = await response.json();
+        console.log(errorData.message)
+        dispatch(signInFailure({ message: errorData.message }));
+        const state = store.getState();
+        console.log(state);
       }
     } catch (error) {
       // En cas d'erreur, dispatchez l'action signInFailure avec l'erreur
-      dispatch(signInFailure("An error occurred"));
+      dispatch(signInFailure({ message: "An error occurred" }));
     }
   };
 };

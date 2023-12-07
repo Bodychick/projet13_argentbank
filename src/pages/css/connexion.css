@@ -1,0 +1,14 @@
+
+.input-wrapper {
+    margin-bottom: 15px;
+  }
+  
+  .input-wrapper.error {
+    color: red; 
+  }
+  
+
+  .error-border {
+    border: 1px solid red; 
+  }
+  
